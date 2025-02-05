@@ -7,6 +7,7 @@
 
 <div align="center">
             Super Fast Custom Browser By claudemods
+    <div align="center">
             Beta Version: 1.0 Build Date: 04-02-2025
 
   <a href="https://www.linux.org" target="_blank"><img src="https://img.shields.io/badge/OS-Linux-e06c75?style=for-the-badge&logo=linux" /></a>
