@@ -8,7 +8,7 @@
 <div align="center">
             Super Fast Custom Lightweight Qt6 Browser Written in C++
     <div align="center">
-            Beta Version v1.0 Build Date: 04-02-2025
+            Beta Version v1.0 Build Date: 05-02-2025
 
   <a href="https://www.linux.org" target="_blank"><img src="https://img.shields.io/badge/OS-Linux-e06c75?style=for-the-badge&logo=linux" /></a>
            <a href="https://archlinux.org" target="_blank"><img src="https://img.shields.io/badge/DISTRO-Arch-56b6c2?style=for-the-badge&logo=arch-linux" /></a>
@@ -31,6 +31,12 @@
 
 [![Ko-Fi](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&label=claudemods&color=3399FF&Linux&logo=ko-fi&logoColor=white)](https://ko-fi.com/claudemods)
 [![GitHub Sponsors](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&label=claudemods&color=A836FF&logo=GitHub-Sponsors&logoColor=#white)](https://github.com/sponsors/claudemods)</div>
+
+
+![2025-02-05-161021_hyprshot](https://github.com/user-attachments/assets/a848a5b4-b7f3-48f8-a9e2-f0e558aca3ce)
+![2025-02-05-161409_hyprshot](https://github.com/user-attachments/assets/2a65e75d-3445-4783-bd41-637e8a073b9d)
+ ![2025-02-05-161509_hyprshot](https://github.com/user-attachments/assets/54039ff4-71d6-4144-8b7c-163d97731f75)
+
 
 
 
