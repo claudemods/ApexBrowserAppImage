@@ -20,7 +20,7 @@ save bookmark
                     <div align="center">
 use saved bookmark
                         <div align="center">
-refresh back and forward
+refresh back and forward or open new tab
 <div align="center">
 change and save theme 
 <div align="center">
