@@ -8,7 +8,9 @@
 <div align="center">
             Super Fast Custom Lightweight Qt6 Browser Written in C++
     <div align="center">
-   Beta Version v1.0 Build Date: 05-02-2025
+        for Arch and Debian
+        <div align="center">
+  Arch Beta Version v1.0 Build Date: 05-02-2025
         <div align="center">
 v1.0 changelog:
         <div align="center">
