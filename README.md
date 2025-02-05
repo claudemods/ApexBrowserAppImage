@@ -14,6 +14,8 @@ v1.0 changelog:
         <div align="center">
 opens to google  
             <div align="center">
+                incognito mode
+            <div align="center">
 change url
                 <div align="center">
 save bookmark
