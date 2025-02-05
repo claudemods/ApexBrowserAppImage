@@ -3,7 +3,7 @@
 </p>
 
 <div align="center">
-<img width="750" src="https://i.postimg.cc/50LtZkq8/Apex-Browser.png" alt="logo">
+<img width="120" src="https://i.postimg.cc/50LtZkq8/Apex-Browser.png" alt="logo">
 
 <div align="center">
 
