@@ -10,7 +10,9 @@
     <div align="center">
         for Arch and Debian
         <div align="center">
-  Arch Beta Version v1.0 Build Date: 05-02-2025
+  Arch Qt6 Beta Version v1.0 Build Date: 05-02-2025
+            <div align="center">
+Debian Qt6 Beta Version v1.0 Build Date: 05-02-2025
         <div align="center">
 v1.0 changelog:
         <div align="center">
