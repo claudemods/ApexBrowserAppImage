@@ -56,13 +56,13 @@ change and save theme
 [![Ko-Fi](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&label=claudemods&color=3399FF&Linux&logo=ko-fi&logoColor=white)](https://ko-fi.com/claudemods)
 [![GitHub Sponsors](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&label=claudemods&color=A836FF&logo=GitHub-Sponsors&logoColor=#white)](https://github.com/sponsors/claudemods)</div>
 
-<div align="center">
 Arch Qt6 Version
 ![2025-02-05-161021_hyprshot](https://github.com/user-attachments/assets/a848a5b4-b7f3-48f8-a9e2-f0e558aca3ce)
 ![2025-02-05-161409_hyprshot](https://github.com/user-attachments/assets/2a65e75d-3445-4783-bd41-637e8a073b9d)
  ![2025-02-05-161509_hyprshot](https://github.com/user-attachments/assets/54039ff4-71d6-4144-8b7c-163d97731f75)
+     <div align="center">
     Debian Qt6 Version
-    <div align="center">
+   
  ![debian](https://github.com/user-attachments/assets/e7643e02-7b46-41c4-b1a7-5ac129472e5c)
 
 
