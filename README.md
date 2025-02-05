@@ -6,7 +6,7 @@
 <img width="120" src="https://i.postimg.cc/50LtZkq8/Apex-Browser.png" alt="logo">
 
 <div align="center">
-            Super Fast Custom Lightweight Qt6 Browser By claudemods
+            Super Fast Custom Lightweight Qt6 Browser Written in C++ By claudemods
     <div align="center">
             Beta Version v1.0 Build Date: 04-02-2025
 
