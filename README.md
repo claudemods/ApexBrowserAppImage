@@ -6,7 +6,7 @@
 <img width="120" src="https://i.postimg.cc/50LtZkq8/Apex-Browser.png" alt="logo">
 
 <div align="center">
-            Super Fast Custom Browser By claudemods
+            Super Fast Custom Qt6 Browser By claudemods
     <div align="center">
             Beta Version v1.0 Build Date: 04-02-2025
 
