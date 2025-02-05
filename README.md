@@ -2,6 +2,8 @@
     <img width="750" src="https://i.postimg.cc/8CgB2xLb/Apex-Browser-2-5-2025.png" alt="logo">
 </p>
 
+<img width="750" src="https://www.imghippo.com/i/NVvV7620tE.png" alt="logo">
+
 <div align="center">
 
   <a href="https://www.linux.org" target="_blank"><img src="https://img.shields.io/badge/OS-Linux-e06c75?style=for-the-badge&logo=linux" /></a>
