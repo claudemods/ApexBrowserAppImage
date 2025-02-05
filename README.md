@@ -39,7 +39,7 @@ change and save theme
 
 <div align="center">
 
-[![Version](https://img.shields.io/github/v/release/claudemods/DeepSeekAppImage?color=FFD700&label=Latest%20Release&style=for-the-badge)]()
+[![Version](https://img.shields.io/github/v/release/claudemods/ApexBrowserAppImage?color=FFD700&label=Latest%20Release&style=for-the-badge)](https://github.com/claudemods/ApexBrowserAppImage/releases/tag/v1.0-Build-05-02-2025)
 <div align="center">
 
 ## [ Support Me ](https://www.paypal.com/paypalme/claudemods?country.x=GB&locale)
