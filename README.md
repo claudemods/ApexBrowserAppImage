@@ -30,7 +30,7 @@ refresh back and forward or open new tab
 <div align="center">
 change and save theme 
 <div align="center">
-News Newer Build of v1.0 will also contain Apex Viewer as a tab option to view files play music or evan watch videos
+News Newer Build of v1.0 will also contain Apex Viewer as a Button For a tab option to view files play music or evan watch videos
 
         
   <a href="https://www.linux.org" target="_blank"><img src="https://img.shields.io/badge/OS-Linux-e06c75?style=for-the-badge&logo=linux" /></a>
