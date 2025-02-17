@@ -109,6 +109,6 @@ Exec=apexbrowser.bin
 Path=/usr/bin
 StartupNotify=true
 Terminal=false
-Icon=ApexBrowser
+Icon=apexbrowser
 Type=Application
 Categories=Network;WebBrowser;
