@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/back.png</file>
+        <file>icons/forward.png</file>
+        <file>icons/refresh.png</file>
+        <file>icons/privacy.png</file>
+        <file>icons/save.png</file>
+        <file>icons/bookmark.png</file>
+        <file>icons/newtab.png</file>
+        <file>icons/settings.png</file>
+        <file>icons/hide.png</file>
+        <file>icons/menuoptions.png</file>
+        <file>icons/ApexBrowser.png</file>
+    </qresource>
+</RCC>
