@@ -1,9 +1,12 @@
+
+
+<div align="center">
+<img width="120" src="https://i.postimg.cc/50LtZkq8/Apex-Browser.png" alt="logo">
 <p align="center">
     <img width="750" src="https://i.postimg.cc/8CgB2xLb/Apex-Browser-2-5-2025.png" alt="logo">
 </p>
 
-<div align="center">
-<img width="120" src="https://i.postimg.cc/50LtZkq8/Apex-Browser.png" alt="logo">
+
 
 <div align="center">
             Super Fast Custom Lightweight Qt6 Browser Written in C++
