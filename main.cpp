@@ -306,7 +306,7 @@ private slots:
         QVBoxLayout *dialogLayout = new QVBoxLayout;
         QLabel *themeLabel = new QLabel("Select Theme:", &dialog);
         QComboBox *themeSelector = new QComboBox(&dialog);
-        themeSelector->addItem("Teal UI / Gold Text");
+        themeSelector->addItem("Blue UI / Gold Text");
         themeSelector->addItem("Red UI / Black Text");
         themeSelector->addItem("Dark Blue UI / White Text");
         themeSelector->addItem("White UI / Red Text");
@@ -370,8 +370,8 @@ private:
     }
 
     void setTheme(const QString &theme) {
-        if (theme == "Teal UI / Gold Text") {
-            setStyleSheet("QWidget { background-color: rgb(0, 128, 128); color: rgb(255, 215, 0); }");
+        if (theme == "Blue UI / Gold Text") {
+             setStyleSheet("QWidget { background-color: #00568f; color: rgb(255, 215, 0); }");
         } else if (theme == "Red UI / Black Text") {
             setStyleSheet("QWidget { background-color: rgb(255, 0, 0); color: rgb(0, 0, 0); }");
         } else if (theme == "Dark Blue UI / White Text") {
