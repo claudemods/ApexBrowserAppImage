@@ -61,10 +61,9 @@ News Newer Build of v1.0 will also contain Apex Viewer as a Button For a tab opt
 
 Arch Qt6 Version First Photo Is The Default Colour
 ![2025-03-17-101939_hyprshot](https://github.com/user-attachments/assets/6a286483-d0e8-4717-8465-f1a135afaf50)
-![2025-03-17-102556_hyprshot](https://github.com/user-attachments/assets/dda106ed-cb3e-4250-862e-1c5575aeccaa)
+![2025-03-17-102835_hyprshot](https://github.com/user-attachments/assets/821ab4ad-8df0-49f6-8db7-7295f1135db7)
 
- ![2025-02-05-161509_hyprshot](https://github.com/user-attachments/assets/54039ff4-71d6-4144-8b7c-163d97731f75)
-     <div align="center">
+<div align="center">
     Debian Qt6 Version
    
  ![debian](https://github.com/user-attachments/assets/e7643e02-7b46-41c4-b1a7-5ac129472e5c)
