@@ -20,29 +20,85 @@
 #include <QComboBox>
 #include <QStyle>
 #include <QCursor>
+#include <QWebEngineSettings>
+#include <QWebEngineFullScreenRequest>
+#include <QStandardPaths>
+
+class WebEnginePage : public QWebEnginePage {
+    Q_OBJECT
+public:
+    WebEnginePage(QWebEngineProfile* profile, QWidget* parent = nullptr)
+    : QWebEnginePage(profile, parent) {
+        // Configure profile settings
+        profile->setPersistentCookiesPolicy(QWebEngineProfile::ForcePersistentCookies);
+        profile->setHttpCacheType(QWebEngineProfile::MemoryHttpCache);
+        profile->setHttpCacheMaximumSize(50 * 1024 * 1024);
+
+        // Configure page settings
+        QWebEngineSettings *pageSettings = this->settings();
+        pageSettings->setAttribute(QWebEngineSettings::LocalStorageEnabled, true);
+        pageSettings->setAttribute(QWebEngineSettings::JavascriptEnabled, true);
+        pageSettings->setAttribute(QWebEngineSettings::ScrollAnimatorEnabled, false);
+        pageSettings->setAttribute(QWebEngineSettings::FullScreenSupportEnabled, true);
+
+        connect(this, &QWebEnginePage::fullScreenRequested, this, &WebEnginePage::handleFullScreenRequest);
+    }
+
+private slots:
+    void handleFullScreenRequest(QWebEngineFullScreenRequest request) {
+        if (request.toggleOn()) {
+            emit enterFullScreen();
+        } else {
+            emit exitFullScreen();
+        }
+        request.accept();
+    }
+
+signals:
+    void enterFullScreen();
+    void exitFullScreen();
+};
 
 class BrowserWindow : public QWidget {
     Q_OBJECT
 
 public:
     BrowserWindow(QWidget *parent = nullptr) : QWidget(parent), incognitoMode(false) {
-        // Load saved theme on startup
+        // Persistent profile setup
+        QString dataPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "/ApexBrowser";
+        QDir().mkpath(dataPath);
+
+        mainProfile = new QWebEngineProfile("ApexPersistentProfile", this);
+        mainProfile->setPersistentCookiesPolicy(QWebEngineProfile::ForcePersistentCookies);
+        mainProfile->setPersistentStoragePath(dataPath + "/storage");
+        mainProfile->setCachePath(dataPath + "/cache");
+        mainProfile->setHttpCacheType(QWebEngineProfile::DiskHttpCache);
+
+        incognitoProfile = new QWebEngineProfile("ApexIncognitoProfile", this);
+        incognitoProfile->setPersistentCookiesPolicy(QWebEngineProfile::NoPersistentCookies);
+        incognitoProfile->setHttpCacheType(QWebEngineProfile::NoCache);
+
         loadTheme();
 
+        // Main layout
         QVBoxLayout *mainLayout = new QVBoxLayout(this);
         mainLayout->setContentsMargins(0, 0, 0, 0);
         mainLayout->setSpacing(0);
 
+        // Tab widget
         tabWidget = new QTabWidget(this);
         tabWidget->setTabsClosable(true);
         mainLayout->addWidget(tabWidget);
 
+        // Open initial tab
         openNewTab();
 
+        // Navigation bar
         QHBoxLayout *navLayout = new QHBoxLayout();
         navLayout->setContentsMargins(5, 5, 5, 5);
         navLayout->setSpacing(5);
 
+        // Navigation buttons (unchanged from your original)
         QPushButton *backButton = new QPushButton(QIcon(":/icons/back.png"), "", this);
         styleButton(backButton, "Back");
         navLayout->addWidget(backButton);
@@ -59,6 +115,7 @@ public:
         styleButton(privacyButton, "Incognito Mode");
         navLayout->addWidget(privacyButton);
 
+        // URL bar (unchanged from your original)
         urlBar = new QLineEdit(this);
         urlBar->setPlaceholderText("Enter URL or search...");
         urlBar->setStyleSheet(
@@ -72,6 +129,7 @@ public:
         );
         navLayout->addWidget(urlBar);
 
+        // Other buttons (unchanged from your original)
         QPushButton *saveButton = new QPushButton(QIcon(":/icons/save.png"), "", this);
         styleButton(saveButton, "Save URL to Bookmarks");
         navLayout->addWidget(saveButton);
@@ -94,6 +152,7 @@ public:
 
         mainLayout->addLayout(navLayout);
 
+        // Settings panel (unchanged from your original)
         settingsPanel = new QWidget(this);
         settingsPanel->setVisible(false);
 
@@ -128,6 +187,7 @@ public:
 
         mainLayout->addWidget(settingsPanel);
 
+        // Connect signals and slots (unchanged from your original)
         connect(backButton, &QPushButton::clicked, this, &BrowserWindow::goBack);
         connect(forwardButton, &QPushButton::clicked, this, &BrowserWindow::goForward);
         connect(refreshButton, &QPushButton::clicked, this, &BrowserWindow::refreshPage);
@@ -159,7 +219,19 @@ private slots:
 
     void openNewTab() {
         QWebEngineView *webView = new QWebEngineView(this);
+        WebEnginePage *page = new WebEnginePage(incognitoMode ? incognitoProfile : mainProfile, webView);
+        webView->setPage(page);
         webView->setUrl(QUrl("https://www.google.com"));
+
+        // Fullscreen connections
+        connect(page, &WebEnginePage::enterFullScreen, this, [this, webView]() {
+            webView->setParent(nullptr);
+            webView->showFullScreen();
+        });
+        connect(page, &WebEnginePage::exitFullScreen, this, [this, webView]() {
+            tabWidget->addTab(webView, webView->title());
+            webView->showNormal();
+        });
 
         int tabIndex = tabWidget->addTab(webView, "New Tab");
         tabWidget->setTabIcon(tabIndex, QIcon(":/icons/ApexBrowser.png"));
@@ -261,15 +333,10 @@ private slots:
     void toggleIncognitoMode() {
         incognitoMode = !incognitoMode;
 
-        QWebEngineProfile *profile = QWebEngineProfile::defaultProfile();
         if (incognitoMode) {
-            profile->setPersistentCookiesPolicy(QWebEngineProfile::NoPersistentCookies);
-            profile->setHttpCacheType(QWebEngineProfile::NoCache);
             QNetworkProxy::setApplicationProxy(QNetworkProxy(QNetworkProxy::HttpProxy, "9.9.9.11", 80));
             QMessageBox::information(this, "Incognito Mode", "Incognito mode is now active with Quad9 DNS.");
         } else {
-            profile->setPersistentCookiesPolicy(QWebEngineProfile::AllowPersistentCookies);
-            profile->setHttpCacheType(QWebEngineProfile::MemoryHttpCache);
             QNetworkProxy::setApplicationProxy(QNetworkProxy::NoProxy);
             QMessageBox::information(this, "Incognito Mode", "Incognito mode is now inactive.");
         }
@@ -281,7 +348,7 @@ private slots:
 
     void showMenu() {
         QMenu menu;
-        QAction *option1 = menu.addAction("Change Theme"); // Theme selector
+        QAction *option1 = menu.addAction("Change Theme");
         QAction *option2 = menu.addAction("Option 2");
         QAction *option3 = menu.addAction("Option 3");
         QAction *option4 = menu.addAction("Option 4");
@@ -301,7 +368,7 @@ private slots:
     void showThemeSelector() {
         QDialog dialog(this);
         dialog.setWindowTitle("Select Theme");
-        dialog.resize(300, 200); // Smaller size
+        dialog.resize(300, 200);
 
         QVBoxLayout *dialogLayout = new QVBoxLayout;
         QLabel *themeLabel = new QLabel("Select Theme:", &dialog);
@@ -333,7 +400,7 @@ private slots:
                 QTextStream out(&file);
                 out << selectedTheme;
                 file.close();
-                setTheme(selectedTheme); // Apply the selected theme immediately
+                setTheme(selectedTheme);
                 QMessageBox::information(&dialog, "Theme Saved", "Theme has been saved successfully.");
             } else {
                 QMessageBox::warning(&dialog, "Error", "Failed to save theme.");
@@ -342,7 +409,7 @@ private slots:
         });
 
         dialog.setLayout(dialogLayout);
-        dialog.move(rect().center() - dialog.rect().center()); // Centered above .png buttons
+        dialog.move(rect().center() - dialog.rect().center());
         dialog.exec();
     }
 
@@ -352,6 +419,8 @@ private:
     QWidget *settingsPanel;
     QPushButton *settingsButton;
     bool incognitoMode;
+    QWebEngineProfile *mainProfile;
+    QWebEngineProfile *incognitoProfile;
 
     void styleButton(QPushButton *button, const QString &tooltip) {
         button->setToolTip(tooltip);
@@ -371,7 +440,7 @@ private:
 
     void setTheme(const QString &theme) {
         if (theme == "Blue UI / Gold Text") {
-             setStyleSheet("QWidget { background-color: #00568f; color: rgb(255, 215, 0); }");
+            setStyleSheet("QWidget { background-color: #00568f; color: rgb(255, 215, 0); }");
         } else if (theme == "Red UI / Black Text") {
             setStyleSheet("QWidget { background-color: rgb(255, 0, 0); color: rgb(0, 0, 0); }");
         } else if (theme == "Dark Blue UI / White Text") {
@@ -397,9 +466,9 @@ private:
             QTextStream in(&file);
             QString savedTheme = in.readLine();
             file.close();
-            setTheme(savedTheme); // Apply the saved theme
+            setTheme(savedTheme);
         } else {
-            setTheme("Teal UI / Gold Text"); // Default theme
+            setTheme("Blue UI / Gold Text");
         }
     }
 };
