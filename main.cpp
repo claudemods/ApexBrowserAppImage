@@ -167,7 +167,7 @@ public:
         textLabel->setText(
             "Apex Browser Information\n"
             "Super Fast Custom Lightweight Qt6 Browser Written in C++ \n"
-            "Version: 1.0 Build Date: 05-02-2025."
+            "Version: 1.01 Build Date: 27-06-2025."
         );
         textLabel->setStyleSheet(
             "QLabel { "
