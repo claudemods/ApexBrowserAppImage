@@ -78,7 +78,7 @@ Arch Qt6 Version First Photo Is The Default Colour
 
 
 
-![Screenshot_20250815_213237](https://github.com/user-attachments/assets/67cb88ba-6b17-4709-9421-c161f518d6e9)
+![Screenshot_20250815_213109](https://github.com/user-attachments/assets/0b18286e-6bb8-440d-8016-76632cefa392)
 
 
 
