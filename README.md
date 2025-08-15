@@ -68,7 +68,14 @@ Arch Qt6 Version First Photo Is The Default Colour
    
  ![debian](https://github.com/user-attachments/assets/e7643e02-7b46-41c4-b1a7-5ac129472e5c)
 
- andriod apk v1.01
+
+
+
+
+andriod apk v1.01
+
+
+ 
  ![Screenshot_20250815_213104](https://github.com/user-attachments/assets/61c43bbd-2c2c-47f7-9df5-07d23c3c97eb)
 
 
